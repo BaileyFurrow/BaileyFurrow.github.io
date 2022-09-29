@@ -1,0 +1,3 @@
+[submodule "web-chip8"]
+	path = web-chip8
+	url = https://github.com/BaileyFurrow/web-chip8
