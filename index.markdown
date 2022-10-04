@@ -5,4 +5,4 @@
 layout: home
 ---
 
-[CHIP-8 Emulator]({% link web-chip8/ })
+[CHIP-8 Emulator]({% link web-chip8/ % })
