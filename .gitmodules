@@ -1,3 +1,12 @@
 [submodule "web-chip8"]
 	path = web-chip8
 	url = https://github.com/BaileyFurrow/web-chip8
+[submodule "ShortcutList"]
+	path = ShortcutList
+	url = https://github.com/BaileyFurrow/ShortcutList.git
+[submodule "brass-fingerings"]
+	path = brass-fingerings
+	url = https://github.com/BaileyFurrow/brass-fingerings.git
+[submodule "Beginner-Friendly-2048"]
+	path = Beginner-Friendly-2048
+	url = https://github.com/BaileyFurrow/Beginner-Friendly-2048.git
