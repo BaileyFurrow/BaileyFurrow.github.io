@@ -1,4 +1,4 @@
-export function vimSiteSearch(searchID) {
+function vimSiteSearch(searchID) {
   console.log('testing');
   const SEARCH = document.querySelector(searchID);
 
