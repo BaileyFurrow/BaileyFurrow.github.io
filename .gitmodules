@@ -10,3 +10,6 @@
 [submodule "Beginner-Friendly-2048"]
 	path = Beginner-Friendly-2048
 	url = https://github.com/BaileyFurrow/Beginner-Friendly-2048.git
+[submodule "VisualTimer"]
+	path = VisualTimer
+	url = https://github.com/BaileyFurrow/VisualTimer
