@@ -15,6 +15,7 @@ function vimSiteSearch(searchID) {
       console.log('key press');
       console.log(event.key == '/' && document.activeElement.tagName != 'INPUT');
       if (event.key == '/' && document.activeElement.tagName != 'INPUT') {
+          SEARCH.select();
           SEARCH.focus();
       }
   }
