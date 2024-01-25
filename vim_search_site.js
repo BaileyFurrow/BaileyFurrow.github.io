@@ -21,23 +21,24 @@ function vimSiteSearch(searchID) {
         return elem;
     }
 
-    const SEARCH = waitForElem(searchID);
-
-    document.addEventListener("keyup", captureSlash);
-    SEARCH.addEventListener("focus", () => {
-        document.removeEventListener("keyup", captureSlash);
-    });
-
-    SEARCH.addEventListener("blur", () => {
+    waitforElem(searchID).then(SEARCH => {
+        
         document.addEventListener("keyup", captureSlash);
-    });
+        SEARCH.addEventListener("focus", () => {
+            document.removeEventListener("keyup", captureSlash);
+        });
 
-    function captureSlash(event) {
-        console.log("key press");
-        if (event.key == "/" && document.activeElement.tagName != "INPUT") {
-            SEARCH.select();
-            SEARCH.focus();
-            SEARCH.scrollIntoView();
+        SEARCH.addEventListener("blur", () => {
+            document.addEventListener("keyup", captureSlash);
+        });
+
+        function captureSlash(event) {
+            console.log("key press");
+            if (event.key == "/" && document.activeElement.tagName != "INPUT") {
+                SEARCH.select();
+                SEARCH.focus();
+                SEARCH.scrollIntoView();
+            }
         }
-    }
+    });
 }
