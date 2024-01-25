@@ -21,7 +21,7 @@ function vimSiteSearch(searchID) {
         return elem;
     }
 
-    waitforElem(searchID).then(SEARCH => {
+    waitForElem(searchID).then(SEARCH => {
         
         document.addEventListener("keyup", captureSlash);
         SEARCH.addEventListener("focus", () => {
