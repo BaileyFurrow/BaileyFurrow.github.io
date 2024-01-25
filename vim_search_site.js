@@ -13,7 +13,7 @@ function vimSiteSearch(searchID) {
                 }
             });
             observer.observe(document.body, {
-                chistList: true,
+                childList: true,
                 subtree: true
             });
         });
