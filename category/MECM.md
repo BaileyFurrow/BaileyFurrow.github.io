@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Category: MECM"
-permalink: /mecm/
+permalink: /MECM/
 ---
 
 List of all posts in the MECM category.
