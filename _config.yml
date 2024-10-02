@@ -37,11 +37,6 @@ defaults:
       path: "assets/img"
     values:
       image: true
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      excerpt_seperator: <!--more-->
 
 # Exclude from processing.
 # The following items will not be processed, by default.
