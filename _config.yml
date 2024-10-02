@@ -41,7 +41,7 @@ defaults:
       path: ""
       type: "posts"
     values:
-      excerpt_seperator: "<!--more-->"
+      excerpt_seperator: <!--more-->
 
 # Exclude from processing.
 # The following items will not be processed, by default.
