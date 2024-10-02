@@ -6,7 +6,9 @@ category: MECM
 
 Soon, I will be potentially taking on new responsibilities at my current job, as
 I have shown interest in working with an IT Developer in application/update
-deployment. With my extensive knowledge in PowerShell, I will excel at the role.<!--more-->
+deployment. With my extensive knowledge in PowerShell, I will excel at the role.
+
+<!--more-->
 
 To begin preparing, I have decided to run through [a lab kit from Microsoft
 to learn more about MECM][lab-link] and how it works. Currently, I know some of
