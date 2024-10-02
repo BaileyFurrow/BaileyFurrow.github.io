@@ -6,4 +6,12 @@ permalink: /mecm/
 
 List of all posts in the MECM category.
 
-{{ site.categories.MECM }}
+{% for post in site.categories.MECM %}
+
+## [{{ post.title }}]({{ post.url }})
+
+*Posted on {{ post.date }}*
+
+{{ post.excerpt }}
+
+{% endfor %}
