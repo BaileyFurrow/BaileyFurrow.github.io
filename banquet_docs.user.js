@@ -55,6 +55,10 @@
     let richCtrls = document.createElement('div');
     richCtrls.style.textAlign = 'center';
     richCtrls.style.margin = '10px 0';
+    richCtrls.style.position = 'sticky';
+    richCtrls.style.top = '0';
+    richCtrls.style.backgroundColor = 'white';
+    richCtrls.style.zIndex = '100';
     richCtrls.append(formatSmButton('bold', 'B', 'Bold'));
     richCtrls.append(formatSmButton('italic', 'I', 'Italic'));
     richCtrls.append(formatSmButton('underline', 'U', 'Underline'));
