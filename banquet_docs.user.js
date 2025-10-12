@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Edit Banquet Documents
 // @namespace    https://www.baileyfurrow.com/
-// @version      1.4
+// @version      1.5
 // @description  Easily edit banquet documents in a simple manner.
 // @author       Bailey Furrow
 // @match        https://portal.tripleseat.com/doc/*
@@ -57,13 +57,15 @@
     richCtrls.append(formatSmButton('bold', 'B'));
     richCtrls.append(formatSmButton('italic', 'I'));
     richCtrls.append(formatSmButton('underline', 'U'));
-    tipBold.after(richCtrls);
+    doc.before(richCtrls);
+    richCtrls.style.display = 'none';
 
     function editPage(e) {
         if (!doc.isContentEditable) {
             e.target.textContent = 'Stop Editing...';
             doc.contentEditable = 'true';
             tipBold.style.display = 'block';
+            richCtrls.style.display = 'block';
             doc.focus();
         } else {
             e.target.textContent = 'Edit Page';
