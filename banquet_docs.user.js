@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Edit Banquet Documents
 // @namespace    https://www.baileyfurrow.com/
-// @version      1.6.3
+// @version      1.6.4
 // @description  Easily edit banquet documents in a simple manner.
 // @author       Bailey Furrow
 // @match        https://portal.tripleseat.com/doc/*
@@ -59,12 +59,11 @@
     richCtrls.style.top = '0';
     richCtrls.style.backgroundColor = 'white';
     richCtrls.style.zIndex = '100';
-    richCtrls.style.padding = '5px 0';
+    richCtrls.style.padding = '10px 0';
     richCtrls.append(formatSmButton('bold', 'B', 'Bold'));
     richCtrls.append(formatSmButton('italic', 'I', 'Italic'));
     richCtrls.append(formatSmButton('underline', 'U', 'Underline'));
-    richCtrls.append(formatSmButton('subscript', '🗛', 'Decrease Font Size'));
-    richCtrls.append(formatSmButton('increaseFontSize', '🗚', 'Increase Font Size'));
+    richCtrls.append(formatSmButton('subscript', '🗛', 'Toggle Small Font'));
     doc.before(richCtrls);
     richCtrls.style.display = 'none';
 
