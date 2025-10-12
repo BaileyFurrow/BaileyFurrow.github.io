@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Edit Banquet Documents
 // @namespace    https://www.baileyfurrow.com/
-// @version      1.7
+// @version      2.0
 // @description  Easily edit banquet documents in a simple manner.
 // @author       Bailey Furrow
 // @match        https://portal.tripleseat.com/doc/*
@@ -22,7 +22,7 @@
 //     tipBold.style.textAlign = 'center';
 //     tipBold.style.display = 'none';
     tipBold.className = 'tip';
-    tipBold.innerHTML = 'Tip from Bailey: if you need to <strong>embolden</strong> some text <em>while editing the page</em>, use the shortcut <code>Ctrl+B</code><br><strong>Note</strong>: Changes made on this page will <strong>not</strong> be saved.';
+    tipBold.innerHTML = '<strong>Note</strong>: Changes made on this page will <strong>not</strong> be saved.';
     tipBold.innerHTML += '<br><br><em>Editor version: ' + GM_info.script.version + '</em>';
     document.querySelector('#main').before(tipBold);
 
@@ -95,8 +95,8 @@
             The tool allows you to edit documents to be printed to correct formatting mistakes.
             <h2>How to use tool</h2>
             To use this tool, simply click "Edit Page" to begin editing the document to be printed.<br>
-            As of version 2.0, this editor includes buttons for basic formatting: <b>bold</b>, <i>italics</i>, and <u>underline</u>.<br>
-            <sub><i>A button is also available to make text smaller.</i></sub><br>
+            As of version 2.0, this editor includes buttons for basic formatting: <b>bold</b>, <i>italics</i>, and <u>underline</u>.<br><br>
+            <sub><i>A button is also available to make text smaller.</i></sub><br><br>
             Once finished editing, just click the "Print Page" button. The code I wrote will take care of printing the correct parts of the page.<br>
             <h4>Note</h4>
             Anything typed on the page will NOT be saved. That requires a LOT more work that I don't wanna do, plus it's unecessary.<br>
