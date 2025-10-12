@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Edit Banquet Documents
 // @namespace    https://www.baileyfurrow.com/
-// @version      1.5
+// @version      1.6
 // @description  Easily edit banquet documents in a simple manner.
 // @author       Bailey Furrow
 // @match        https://portal.tripleseat.com/doc/*
@@ -28,7 +28,7 @@
 
     // Basic rich text editor
 
-    function formatSmButton(cmd, btnText) {
+    function formatSmButton(cmd, btnText, tooltip='') {
         let btn = document.createElement('button');
         btn.className = 'smBtn';
         switch (cmd) {
@@ -48,15 +48,18 @@
             document.execCommand(cmd, false, null);
             doc.focus();
         });
+        btn.tooltip = tooltip;
         return btn;
     }
 
     let richCtrls = document.createElement('div');
     richCtrls.style.textAlign = 'center';
     richCtrls.style.margin = '10px 0';
-    richCtrls.append(formatSmButton('bold', 'B'));
-    richCtrls.append(formatSmButton('italic', 'I'));
-    richCtrls.append(formatSmButton('underline', 'U'));
+    richCtrls.append(formatSmButton('bold', 'B', 'Bold'));
+    richCtrls.append(formatSmButton('italic', 'I', 'Italic'));
+    richCtrls.append(formatSmButton('underline', 'U', 'Underline'));
+    richCtrls.append(formatSmButton('decreaseFontSize', '🗛', 'Decrease Font Size'));
+    richCtrls.append(formatSmButton('increaseFontSize', '🗚', 'Increase Font Size'));
     doc.before(richCtrls);
     richCtrls.style.display = 'none';
 
