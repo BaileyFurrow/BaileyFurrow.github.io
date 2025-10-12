@@ -48,7 +48,7 @@
             document.execCommand(cmd, false, null);
             doc.focus();
         });
-        btn.tooltip = tooltip;
+        btn.title = tooltip;
         return btn;
     }
 
