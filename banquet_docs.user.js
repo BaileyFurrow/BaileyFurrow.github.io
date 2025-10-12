@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Edit Banquet Documents
 // @namespace    https://www.baileyfurrow.com/
-// @version      2.1.2
+// @version      2.1.3
 // @description  Easily edit banquet documents in a simple manner.
 // @author       Bailey Furrow
 // @match        https://portal.tripleseat.com/doc/*
@@ -176,7 +176,7 @@
 
     // Check before unload.
     window.addEventListener('beforeunload', function (e) {
-        if (isEdited && confirm("Changes made on this page will not be saved. Are you sure you want to leave?")) {
+        if (isEdited) {
             e.preventDefault();
         }
     });
