@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Edit Banquet Documents
 // @namespace    https://www.baileyfurrow.com/
-// @version      1.6.4
+// @version      1.7
 // @description  Easily edit banquet documents in a simple manner.
 // @author       Bailey Furrow
 // @match        https://portal.tripleseat.com/doc/*
@@ -23,7 +23,7 @@
 //     tipBold.style.display = 'none';
     tipBold.className = 'tip';
     tipBold.innerHTML = 'Tip from Bailey: if you need to <strong>embolden</strong> some text <em>while editing the page</em>, use the shortcut <code>Ctrl+B</code><br><strong>Note</strong>: Changes made on this page will <strong>not</strong> be saved.';
-    tipBold.innerHTML += '<br><br><em>Script version: ' + GM_info.script.version + '</em>';
+    tipBold.innerHTML += '<br><br><em>Editor version: ' + GM_info.script.version + '</em>';
     document.querySelector('#main').before(tipBold);
 
     // Basic rich text editor
@@ -78,6 +78,7 @@
             e.target.textContent = 'Edit Page';
             doc.contentEditable = 'false';
             tipBold.style.display = 'none';
+            richCtrls.style.display = 'none';
         }
     }
     function printPage(e) {
