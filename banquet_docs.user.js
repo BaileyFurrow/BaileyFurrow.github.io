@@ -6,8 +6,8 @@
 // @author       Bailey Furrow
 // @match        https://portal.tripleseat.com/doc/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=tripleseat.com
-// @downloadURL  https://baileyfurrow.github.io/banquet_doc.user.js
-// @updateURL    https://baileyfurrow.github.io/banquet_doc.user.js
+// @downloadURL  https://baileyfurrow.github.io/banquet_docs.user.js
+// @updateURL    https://baileyfurrow.github.io/banquet_docs.user.js
 // @grant        none
 // ==/UserScript==
 
