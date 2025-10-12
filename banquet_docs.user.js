@@ -95,12 +95,12 @@
             The tool allows you to edit documents to be printed to correct formatting mistakes.
             <h2>How to use tool</h2>
             To use this tool, simply click "Edit Page" to begin editing the document to be printed.<br>
-            If you need to make existing text bold, select the text and press Ctrl+B (programming in a button that does this is not as easy as you might think. plus i'm lazy and it's past midnight).<br>
-            You can also press Ctrl+B before typing to make the text you're about to type bold.<br>
+            As of version 2.0, this editor includes buttons for basic formatting: <b>bold</b>, <i>italics</i>, and <u>underline</u>.<br>
+            <sub><i>A button is also available to make text smaller.</i></sub><br>
             Once finished editing, just click the "Print Page" button. The code I wrote will take care of printing the correct parts of the page.<br>
             <h4>Note</h4>
             Anything typed on the page will NOT be saved. That requires a LOT more work that I don't wanna do, plus it's unecessary.<br>
-            Script version: ${GM_info.script.version}<br>
+            <div style="text-align: center; font-style: italic;">Edtior version: ${GM_info.script.version}</div><br>
             <button style="display: flex; align-items: center; margin: 5px auto" onClick="window.close()">Close</button>
         `;
         const helpWindow = window.open('','','height=450,width=600,menubar=no,status=no');
