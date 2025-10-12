@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Edit Banquet Documents
 // @namespace    https://www.baileyfurrow.com/
-// @version      1.2
+// @version      1.3
 // @description  Easily edit banquet documents in a simple manner.
 // @author       Bailey Furrow
 // @match        https://portal.tripleseat.com/doc/*
@@ -23,6 +23,7 @@
 //     tipBold.style.display = 'none';
     tipBold.className = 'tip';
     tipBold.innerHTML = 'Tip from Bailey: if you need to <strong>embolden</strong> some text <em>while editing the page</em>, use the shortcut <code>Ctrl+B</code><br><strong>Note</strong>: Changes made on this page will <strong>not</strong> be saved.';
+    tipBold.innerHTML += '<br><br><em>Script version: ' + GM_info.script.version + '</em>';
     document.querySelector('#main').before(tipBold);
 
     // Basic rich text editor
@@ -76,6 +77,7 @@
             Once finished editing, just click the "Print Page" button. The code I wrote will take care of printing the correct parts of the page.<br>
             <h4>Note</h4>
             Anything typed on the page will NOT be saved. That requires a LOT more work that I don't wanna do, plus it's unecessary.<br>
+            Script version: ${GM_info.script.version}<br>
             <button style="display: flex; align-items: center; margin: 5px auto" onClick="window.close()">Close</button>
         `;
         const helpWindow = window.open('','','height=450,width=600,menubar=no,status=no');
