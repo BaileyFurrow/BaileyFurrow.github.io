@@ -176,7 +176,7 @@
 
     // Check before unload.
     window.addEventListener('beforeunload', function (e) {
-        if (isEdited && this.confirm("Changes made on this page will not be saved. Are you sure you want to leave?")) {
+        if (isEdited && confirm("Changes made on this page will not be saved. Are you sure you want to leave?")) {
             e.preventDefault();
         }
     });
