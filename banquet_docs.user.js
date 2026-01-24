@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Edit Banquet Documents
 // @namespace    https://www.baileyfurrow.com/
-// @version      2.1.3
+// @version      3.0.0
 // @description  Easily edit banquet documents in a simple manner.
 // @author       Bailey Furrow
 // @match        https://portal.tripleseat.com/doc/*
@@ -85,7 +85,7 @@
     }
     function printPage(e) {
         if (doc.isContentEditable) {
-            btnEditPageLink.click();
+            btnEditPage.firstElementChild.click();
         }
         window.print();
     }
@@ -100,6 +100,9 @@
             As of version 2.0, this editor includes buttons for basic formatting: <b>bold</b>, <i>italics</i>, and <u>underline</u>.<br><br>
             <sub><i>A button is also available to make text smaller.</i></sub><br><br>
             Once finished editing, just click the "Print Page" button. The code I wrote will take care of printing the correct parts of the page.<br>
+            <h2>Version 3.0</h2>
+            Version 3.0 added the ability to move menu cards to the left to accomodate the new printer. Two additional
+            buttons have been added for this purpose.
             <h4>Note</h4>
             Anything typed on the page will NOT be saved. That requires a LOT more work that I don't wanna do, plus it's unecessary.<br>
             <div style="text-align: center; font-style: italic;">Edtior version: ${GM_info.script.version}</div><br>
@@ -114,6 +117,55 @@
         helpStyle.rel = 'stylesheet';
         helpStyle.href = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css';
         helpWindow.document.head.append(helpStyle);
+    }
+
+    let menuStyle = `
+        #document_wrap {
+            width: 4.5in;
+            min-height: initial;
+            max-height: 7.5in;
+            margin: 0;
+            overflow: clip;
+        }
+        @media screen {
+            #document_wrap {
+                border: 1px solid black;
+            }
+        }
+    `;
+
+    function menuLayout(e, forceLayoutOn = false, forceOff = false) {
+        if (!document.querySelector('#menuStyle') && !forceOff) {
+            let menuLayoutStylesheet = document.createElement('style');
+            menuLayoutStylesheet.textContent = menuStyle;
+            menuLayoutStylesheet.id = 'menuStyle';
+            document.head.appendChild(menuLayoutStylesheet);
+        } else if (document.querySelector('#menuStyle') && !forceLayoutOn) {
+            document.querySelector('#menuStyle').remove();
+        }
+    }
+
+    // Shift everything to the left if printing as a menu card.
+    function printMenu() {
+        if (doc.isContentEditable) {
+            btnEditPage.firstElementChild.click();
+        }
+        if (!document.querySelector('#menuPrintStyle')) {
+            let menuPrintStyle = `@media print { ${menuStyle} } `;
+            let menuStylesheet = document.createElement('style');
+            menuStylesheet.textContent = menuPrintStyle;
+            menuStylesheet.id = 'menuPrintStyle';
+            document.head.appendChild(menuStylesheet);
+        }
+        menuLayout(null, true);
+        let cont = true;
+        // 720 == 7.5in;
+        if (doc.scrollHeight > 720) {
+            cont = window.confirm('Contents of menu goes beyond the boundaries of a menu card. Do you wish to continue?');
+        }
+        if (cont) {
+            window.print();
+        }
     }
     let style = `
         @media print {
@@ -143,34 +195,27 @@
     stylesheet.textContent = style;
     document.head.appendChild(stylesheet);
 
-    let btnEditPage = document.createElement('div');
-    btnEditPage.className = button_class;
+    function addButton(text, callback) {
+        let btn = document.createElement('div');
+        btn.className = button_class;
 
-    let btnEditPageLink = document.createElement('a');
-    btnEditPageLink.textContent = 'Edit Page';
-    btnEditPageLink.href = '#';
-    btnEditPageLink.addEventListener('click', editPage);
-    btnEditPage.append(btnEditPageLink);
+        let btnLink = document.createElement('a');
+        btnLink.textContent = text;
+        btnLink.href = '#';
+        btnLink.addEventListener('click', callback);
+        btn.append(btnLink);
+        return btn;
+    }
 
-    let btnPrintPage = document.createElement('div');
-    btnPrintPage.className = button_class;
-
-    let btnPrintPageLink = document.createElement('a');
-    btnPrintPageLink.textContent = 'Print Page';
-    btnPrintPageLink.href = '#';
-    btnPrintPageLink.addEventListener('click', printPage);
-    btnPrintPage.append(btnPrintPageLink);
-
-    let btnHelp = document.createElement('div');
-    btnHelp.className = button_class;
-
-    let btnHelpLink = document.createElement('a');
-    btnHelpLink.textContent = 'Help/About Editing';
-    btnHelpLink.href = '#';
-    btnHelpLink.addEventListener('click', getHelp);
-    btnHelp.append(btnHelpLink);
+    let btnEditPage = addButton('Edit Page', editPage);
+    let btnPrintPage = addButton('Print Page', printPage);
+    let btnMenuLayout = addButton('Menu Card Preview Layout', menuLayout);
+    let btnPrintMenu = addButton('Print Menu Card', printMenu);
+    let btnHelp = addButton('Help/About Editing', getHelp);
 
     sidebar.firstChild.before(btnHelp);
+    sidebar.firstChild.before(btnPrintMenu);
+    sidebar.firstChild.before(btnMenuLayout);
     sidebar.firstChild.before(btnPrintPage);
     sidebar.firstChild.before(btnEditPage);
 
