@@ -211,11 +211,11 @@
         return btn;
     }
 
-    let btnEditPage = addButton('Edit Page', editPage);
-    let btnPrintPage = addButton('Print Page', printPage);
-    let btnMenuLayout = addButton('Menu Card Preview Layout', menuLayout);
-    let btnPrintMenu = addButton('Print Menu Card', printMenu);
-    let btnHelp = addButton('Help/About Editing', getHelp);
+    let btnEditPage = addButton('📝 Edit Page', editPage);
+    let btnPrintPage = addButton('🖨️ Print Page', printPage);
+    let btnMenuLayout = addButton('📃 Menu Card Preview Layout', menuLayout);
+    let btnPrintMenu = addButton('🖨️ Print Menu Card', printMenu);
+    let btnHelp = addButton('ℹ️ Help/About Editing', getHelp);
 
     sidebar.firstChild.before(btnHelp);
     sidebar.firstChild.before(btnPrintMenu);
