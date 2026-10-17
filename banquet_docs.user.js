@@ -15,7 +15,7 @@
     'use strict';
     const doc = document.querySelector("#document_wrap");
     // const sidebar = document.querySelector("#document_sidebar");
-    const sidebar = document.querySelector('#document_root_rail');
+    const sidebar = document.querySelector('#document_rail_root aside');
     const button_class = 'document_options_view';
     var isEdited = false;
     let tipBold = document.createElement('div');
