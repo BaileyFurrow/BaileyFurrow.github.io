@@ -127,7 +127,6 @@
             min-height: initial;
             max-height: 7.5in;
             margin: 0;
-            margin-top: 0.5in;
             overflow: clip;
         }
         @media screen {
